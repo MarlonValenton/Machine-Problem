@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+}
+@{
+    var today = DateTime.Today;
+    var birthdate = new DateTime(2001, 12, 16);
+    string FirstName = "Marlon";
+    string LastName = "Valenton";
+    int Birthday = today.Year - birthdate.Year ;
+    var IsTenured = "Yes";
+    int SalaryPerHour = 200;
+    string Email = "marlonvincentvalenton@gmail.com";
+    string[] Domain = Email.Split('@');
+    string[] Username = Email.Split('@');
+    int SalaryPerDay = SalaryPerHour * 8;
+    int SalaryPerMonth = SalaryPerDay * 30;
+    string Name = "Marlon Valenton";
+    int PrelimGrade = 92;
+    int Final = 90;
+    double SemGrade = PrelimGrade*0.5 + Final*0.5;
+
+}
+
+
+
+<div class="text-center">
+    <p> "I'm @FirstName @LastName and I'm @Birthday years old"</p>
+    <p>"Email : @Email"</p>
+    <p>"Domain : @Domain[1] "</p>
+    <p>"Username : @Username[0]"</p>
+
+    <br />
+    <p> "Name : @FirstName @LastName"</p>
+    <p>"Email : @Email"</p>
+    @{
+        if (IsTenured == "Yes")
+        {
+            <p>"Status : Permanent "</p>
+        }
+        else if (IsTenured == "no")
+        {
+            <p>"Status : Probationary "</p>
+        }
+
+    }
+ 
+    <p>"Daily Salary : $@SalaryPerDay"</p>
+    <p>"Monthly Salary : $@SalaryPerMonth"</p>
+
+    <br />
+
+    <table class="table border border-left border-right border-collapse">
+
+    <tr>
+        <th>Name: </th>     
+        <td>@Name </td>
+    </tr>
+    <tr>
+        <th>Prelim: </th>
+        <td>@PrelimGrade </td>
+    </tr>
+    <tr>
+        <th>Final: </th>
+        <td>@Final </td>
+    </tr>
+    <tr>
+        <th>Semestral Grade : </th>
+        <td>@SemGrade </td>
+    </tr>
+    <tr>
+        <th>Transmuted Grade: </th>
+        @{
+                if (SemGrade <= 100.00 && SemGrade >= 96.00)
+                {
+                    <td>1.00 </td>
+                }
+                else if (SemGrade <=95.00 && SemGrade >= 94.00)
+                {
+                    <td>1.25 </td>
+                }
+                 else if (SemGrade <=93.00 && SemGrade >= 92.00)
+                {
+                    <td>1.50 </td>
+                }
+                else if (SemGrade <= 91.00 && SemGrade >= 89.00)
+                {
+                    <td>1.75 </td>
+                }
+                else if (SemGrade <= 88.00 && SemGrade >= 87.00)
+                {
+                    <td>2.00 </td>
+                }
+                else if (SemGrade <= 86.00 && SemGrade >= 84.00)
+                {
+                    <td>2.25 </td>
+                }
+                else if (SemGrade <= 83.00 && SemGrade >= 82.00)
+                {
+                    <td>2.50 </td>
+                }
+                else if (SemGrade <= 81.00 && SemGrade >= 79.00)
+                {
+                    <td>2.75 </td>
+                }
+                else if (SemGrade <= 78.00 && SemGrade >= 75.00)
+                {
+                    <td>3.00 </td>
+                }
+                else if (SemGrade < 75.00)
+                {
+                    <td>5.00 </td>
+                }
+        }
+        
+    </tr>
+
+
+    </table>
+</div>
