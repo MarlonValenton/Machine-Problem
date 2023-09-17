@@ -25,6 +25,8 @@
     string[] Username = Email.Split('@');
     int SalaryPerDay = SalaryPerHour * 8;
     int SalaryPerMonth = SalaryPerDay * 30;
+    int SalaryPerDayP = SalaryPerHour * 8 + 500;
+    int SalaryPerMonthP = SalaryPerDay * 30 + 500;
     string Name = "Marlon Valenton";
     int PrelimGrade = 92;
     int Final = 90;
@@ -47,16 +49,19 @@
         if (IsTenured == "Yes")
         {
             <p>"Status : Permanent "</p>
+            <p>"Daily Salary : $@SalaryPerDayP"</p>
+            <p>"Monthly Salary : $@SalaryPerMonthP"</p>
         }
-        else if (IsTenured == "no")
+        else if (IsTenured == "No")
         {
             <p>"Status : Probationary "</p>
+            <p>"Daily Salary : $@SalaryPerDay"</p>
+            <p>"Monthly Salary : $@SalaryPerMonth"</p>
         }
 
     }
  
-    <p>"Daily Salary : $@SalaryPerDay"</p>
-    <p>"Monthly Salary : $@SalaryPerMonth"</p>
+
 
     <br />
 
